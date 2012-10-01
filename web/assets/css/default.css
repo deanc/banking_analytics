@@ -1,0 +1,13 @@
+.navbar .balance { padding: 10px 15px 0px; }
+
+.stats { margin-bottom: 60px; }
+
+.stats p { color: #ccc; }
+.stats h3 { margin-bottom: 0; }
+
+
+.stats .stat-balance .icon { background-image: url(../img/icons/chart.png); }
+.stats .stat-td .icon { background-image: url(../img/icons/calendar.png); }
+.stats .stat-tt .icon { background-image: url(../img/icons/linechart.png); }
+.stats .stat-ms .icon { background-image: url(../img/icons/help.png); }
+.stats .icon { height: 65px; background-size: 100%; background-repeat: no-repeat; background-position: 0 4px; padding-bottom: 20px;}

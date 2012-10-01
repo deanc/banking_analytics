@@ -1,0 +1,22 @@
+{
+    "require": {
+        "silex/silex": "1.0.*"
+        ,"twig/twig": ">=1.8,<2.0-dev"
+        ,"symfony/twig-bridge": "2.1.*"
+        ,"twig/extensions": "master-dev"
+        ,"symfony/twig-bridge": "2.1.*"
+        ,"symfony/translation": "2.1.*"
+        ,"symfony/config": "2.1.*"
+        ,"symfony/console": "2.1.*"
+        ,"symfony/form": "2.1.*"
+        ,"symfony/validator": "2.1.*"
+        ,"jms/translation-bundle": "dev-master"
+        ,"doctrine/dbal": "2.2.*"
+        ,"deanc/flotlib": "dev-master"
+    }
+    ,"minimum-stability": "dev"
+    ,"autoload": {
+        "psr-0": { "DC\\BankingAnalytics": "src/" }
+    }
+
+}

@@ -1,0 +1,20 @@
+{% extends "shell.html.twig" %}
+
+{%block pagetitle%}Import data{%endblock%}
+
+{%block breadcrumbs%}
+<li class="active">Import data</li>
+{%endblock%}
+
+
+{%block body%}
+
+<h2>Import your banking data</h2>
+
+<form action="#" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" name="submit" />
+</form>
+
+{%endblock%}

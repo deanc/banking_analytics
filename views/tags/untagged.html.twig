@@ -1,0 +1,41 @@
+{% extends "shell.html.twig" %}
+
+{%block pagetitle%}Reports{%endblock%}
+
+{%block breadcrumbs%}
+<li class="active">Viewing untagged places</li>
+{%endblock%}
+
+
+{%block body%}
+
+<h2>Please quickly categorise these places</h2>
+
+<table class="table table-striped table-hover" style="width: auto">
+    <thead>
+    <tr>
+        <th>Place</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for place in untagged %}
+    <tr>
+        <td>{{place.place}}</td>
+        <td>
+            <form method="post" action="/tags/tag" class="dotag">
+                <input class="place" name="place_id" type="hidden" value="{{place.place_id}}" />
+                <select name="category_id">
+                    <option></option>
+                    {% for c in categories %}
+                        <option value="{{c.category_id}}">{{c.title}}</option>
+                    {%endfor%}
+                </select>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{%endblock%}

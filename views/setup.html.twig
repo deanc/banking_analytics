@@ -1,0 +1,27 @@
+{% extends "shell.html.twig" %}
+
+{%block pagetitle%}Setup{%endblock%}
+
+{%block breadcrumbs%}
+<li class="active">Setup</li>
+{%endblock%}
+
+{%block body%}
+
+<h2>Running tests</h2>
+
+{% for message in messages %}
+        <div class="alert alert-success">{{message}}</div>
+{%endfor%}
+
+{% for error in errors %}
+<div class="alert alert-error">
+    {{error}}
+</div>
+{%endfor%}
+
+{% if done == true %}
+<a class="btn" href="/">Go to your analytics</a>
+{% endif %}
+
+{%endblock%}

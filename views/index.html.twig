@@ -1,0 +1,115 @@
+{% extends "shell.html.twig" %}
+
+{%block pagetitle%}Dashboard{%endblock%}
+
+{%block breadcrumbs%}
+<li class="active">Dashboard</li>
+{%endblock%}
+
+{%block body%}
+<h2>Account Summary</h2>
+
+
+    <div class="row stats">
+
+        <div class="span3 stat-balance">
+            <div class="row">
+                <div class="span1 icon">&nbsp;</div>
+                <div class="span2">
+                    <h3 class="total">{{at_balance}} {{app.currency}}</h3>
+                    <p>in your bank account</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 stat-tt">
+            <div class="row">
+                <div class="span1 icon"></div>
+                <div class="span2">
+                    <h3 class="total">{{at_total_transactions}}</h3>
+                    <p>total transactions ever made</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 stat-td">
+            <div class="row">
+                <div class="span1 icon"></div>
+                <div class="span2">
+                    <h3 class="total">{{at_total_days}}</h3>
+                    <p>days of data processed</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 stat-td">
+            <div class="row">
+                <div class="span1 icon"></div>
+                <div class="span2">
+                    <h3 class="total">{{at_untagged}}</h3>
+                    <p>untagged places {%if at_untagged > 0 %}(<a href="/tags/untagged">Fix</a>){%endif%}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <h2>{{month}} Summary</h2>
+
+    <div class="row stats">
+        <div class="span3 stat-balance">
+            <div class="row">
+                <div class="span1 icon">&nbsp;</div>
+                <div class="span2">
+                    <h3 class="total">{{month_out}} {{app.currency}}</h3>
+                    <p>money spent</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 stat-tt">
+            <div class="row">
+                <div class="span1 icon"></div>
+                <div class="span2">
+                    <h3 class="total">{{month_total_transactions}}</h3>
+                    <p>total transactions</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="span3 stat-td">
+            <div class="row">
+                <div class="span1 icon"></div>
+                <div class="span2">
+                    <h3 class="total">{{month_in}} {{app.currency}}</h3>
+                    <p>money recieved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Latest 10 transactions</h2>
+    <table class="table table-striped table-hover">
+        <caption>Payments <em>to</em> you are marked in green</caption>
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>To</th>
+                <th>When</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in recent %}
+            <tr class="{% if t.amount > 0 %}success{%endif%}">
+                <td>{{t.amount|abs|number_format(2, '.', ',')}}</td>
+                <td><span class="label">{{t.category}}</span></td>
+                <td>{{t.place|capitalize}}</td>
+                <td>{{t.transaction_date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a class="btn" href="/transactions">View all transactions</a></p>
+
+{%endblock%}
