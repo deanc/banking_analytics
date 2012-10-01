@@ -37,9 +37,16 @@ Add the following to your HOSTS file (/etc/hosts or C:/Windows/system32/drivers/
 
 Navigate to setup.php using whatever vhost you set up. e.g.
 
-`http://banking.analytics/setup.php
+`http://banking.analytics/setup.php`
 
-Follow the on screen instructions
+Follow the on screen instructions.
+
+How to import your data
+-
+
+Navigate to and follow the instructions at:
+`http://banking.analytics/import`
+
 
 
 
